@@ -1,0 +1,21 @@
+{
+  "name": "practicenode",
+  "version": "1.0.0",
+  "description": "The best way to watch a videos",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevFrank9/practiceNode.git"
+  },
+  "scripts": {
+    "win": "node index.js"
+  },
+  "author": "JONGHO",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DevFrank9/practiceNode/issues"
+  },
+  "homepage": "https://github.com/DevFrank9/practiceNode#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
