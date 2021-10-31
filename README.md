@@ -1,12 +1,12 @@
 # Wetube Reloaded
 
--- 예외적인 규칙의 라우터 이름 형식
+예외적인 규칙의 라우터 이름 형식
 / -> HOME
 /join -> 회원가입
 /login -> 로그인
 /search -> 검색
 
--- 보통 규칙의 라우터 이름 형식
+보통 규칙의 라우터 이름 형식
 /users/edit -> 유저 정보 수정
 /users/delete -> 유저 정보 삭제
 
