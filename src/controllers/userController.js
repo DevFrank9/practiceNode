@@ -3,6 +3,14 @@ import User from "../models/User";
 export const getJoin = (req, res) => res.render("Join", { pageTitle: "Join" });
 export const postJoin = async (req, res) => {
   const { name, username, email, password, location } = req.body;
+  const pageTitle = "Join";
+  const exists = await User.exists({ $or: [{ username }, { email }] });
+  if (exists) {
+    return res.render("join", {
+      pageTitle,
+      errorMessage: "This username/email is exist taken.",
+    });
+  }
   await User.create({
     name,
     username,
