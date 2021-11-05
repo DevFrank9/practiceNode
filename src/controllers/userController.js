@@ -2,8 +2,14 @@ import User from "../models/User";
 
 export const getJoin = (req, res) => res.render("Join", { pageTitle: "Join" });
 export const postJoin = async (req, res) => {
-  const { name, username, email, password, location } = req.body;
+  const { name, username, email, password1, password2, location } = req.body;
   const pageTitle = "Join";
+  if (password1 !== password2) {
+    return res.render("join", {
+      pageTitle,
+      errorMessage: "Incorrect each password",
+    });
+  }
   const exists = await User.exists({ $or: [{ username }, { email }] });
   if (exists) {
     return res.render("join", {
@@ -15,7 +21,8 @@ export const postJoin = async (req, res) => {
     name,
     username,
     email,
-    password,
+    password1,
+    password2,
     location,
   });
   return res.redirect("/login");
