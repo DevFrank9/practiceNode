@@ -1,3 +1,4 @@
+import "dotenv/config";
 /* db */
 import "./db";
 import "./models/Video";
