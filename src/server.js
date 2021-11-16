@@ -11,7 +11,7 @@ import userRouter from "./routers/userRouter";
 import apiRouter from "./routers/apiRouter";
 
 /* middle ware */
-import { localsMiddleware } from "./middlewares";
+import { embedder, localsMiddleware } from "./middlewares";
 
 const app = express();
 const logger = morgan("dev");
@@ -29,7 +29,7 @@ app.use(
     store: MongoStore.create({ mongoUrl: process.env.DB_URL }),
   })
 );
-
+app.use(embedder);
 app.use(localsMiddleware);
 app.use("/uploads", express.static("uploads"));
 app.use("/static", express.static("assets"));

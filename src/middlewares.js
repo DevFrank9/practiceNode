@@ -31,3 +31,9 @@ export const videoUpload = multer({
   dest: "uploads/videos/",
   limits: { fileSize: 10000000 },
 });
+
+export const embedder = (req, res, next) => {
+  res.header("Cross-Origin-Embedder-Policy", "require-corp");
+  res.header("Cross-Origin-Opener-Policy", "same-origin");
+  next();
+};
