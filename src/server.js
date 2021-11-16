@@ -2,6 +2,7 @@
 import express from "express";
 import morgan from "morgan";
 import session from "express-session";
+import flash from "express-flash";
 import MongoStore from "connect-mongo";
 
 /* routers */
@@ -29,6 +30,8 @@ app.use(
     store: MongoStore.create({ mongoUrl: process.env.DB_URL }),
   })
 );
+
+app.use(flash());
 app.use(embedder);
 app.use(localsMiddleware);
 app.use("/uploads", express.static("uploads"));
