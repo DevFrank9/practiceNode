@@ -43,6 +43,14 @@ const handleDownload = async () => {
   a.download = "MyRecording.mp4";
   document.body.appendChild(a);
   a.click();
+
+  ffmpeg.FS("unlink", "recording.webm");
+  ffmpeg.FS("unlink", "output.mp4");
+  ffmpeg.FS("unlink", "thumbnail.jpg");
+
+  URL.revokeObjectURL(mp4Url);
+  URL.revokeObjectURL(thumbA);
+  URL.revokeObjectURL(videoFile);
 };
 
 const handleStop = () => {
